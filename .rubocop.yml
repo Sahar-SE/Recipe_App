@@ -1,5 +1,4 @@
 AllCops:
-  TargetRubyVersion: 2.8
   NewCops: enable
   Exclude:
     - "db/**/*"
