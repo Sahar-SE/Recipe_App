@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <div class="card set-width my-3">
+      <div class="card-body">
+        <h5>
+          <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+        </h5>
+        <h5>By: <%= recipe.user_id %></h5>
+        <p class="card-text"><%= recipe.description %></p>
+      </div>
+    </div>
+</div>
