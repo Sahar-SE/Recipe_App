@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="card set-width my-3">
+      <div class="card-body">
+        <h5>
+          <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+        </h5>
+        <h5>By: <%= recipe.user_id %></h5>
+        <% if recipe.public %>
+          <div class="form-check form-switch">
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Public</label>
+          </div>
+        <% else %>
+          <div class="form-check form-switch">
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+            <label class="" for="flexSwitchCheckCheckedDisabled">Private</label>
+          </div>
+        <% end %>
+        <p class="card-text"><%= recipe.description %></p>
+
+        <% if can? :manage, recipe %>
+          <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "" %>
+        <% end %>
+      </div>
+    </div>
+</div>
