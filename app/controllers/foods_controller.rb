@@ -2,10 +2,12 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.where(user_id: current_user)
   end
+
   def new
     @food = Food.new
     @user = current_user
   end
+
   def create
     @food = Food.new(params.require(:food).permit(:name, :measurement_unit, :price, :quantity))
     puts 'the food is'
@@ -22,6 +24,7 @@ class FoodsController < ApplicationController
       end
     end
   end
+
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
