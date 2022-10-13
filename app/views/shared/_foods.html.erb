@@ -10,11 +10,17 @@
     </thead>
     <tbody class="text-gray-700">
       <% @foods.each do |food|%>
-        <tr>
+        <tr class="odd:bg-red-300">
           <td class="border border-slate-600 text-center"><%= food.name%></td>
           <td class="border border-slate-600 text-center"><%= food.measurement_unit%></td>
           <td class="border border-slate-600 text-center"><%= food.price%></td>
-          <td class="border border-slate-600 text-center"><%= food%></td>
+          <td class="border border-slate-600 text-center">
+            <%= link_to "Delete", food_path(food), :class => "hover:text-red-600",
+            data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Do you want to delete #{food.name}?"
+                  }%>
+          </td>
         </tr>
       <%end%>
     </tbody>
