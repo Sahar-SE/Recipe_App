@@ -1,0 +1,11 @@
+<body class="flex justify-center">
+  <div class="flex-col w-5/6">
+    <h1 class="text-center">foods list</h1>
+    <div class="flex min-w-full justify-end py-3">
+      <%= link_to new_food_path, :html => 'justify-self-end' do %>
+        <button class="p-1 rounded-sm bg-red-300 text-white"> Add food </button>
+      <% end%>
+    </div>
+    <%= render partial:'shared/foods', locals: {foods: @foods}%>
+  </div>
+</body>
