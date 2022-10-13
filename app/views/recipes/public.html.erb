@@ -1,0 +1,9 @@
+<h1>Public Recipe List</h1>
+
+<% @public_recipes.each do |recipe| %>
+   <%= render partial: 'recipes/public_recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>
+  <% end %>
+  <% if @public_recipes.empty? %>
+    <h1>There are no public recipes to show</h1>
+  <% end %>
+  
