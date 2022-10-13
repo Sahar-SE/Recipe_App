@@ -1,0 +1,21 @@
+<%= form_with model: @food, url: foods_path(@food),html: { class: 'grid gap-y-2'}, method: :post do |form| %>
+  <div class="grid grid-rows-1 gap-2 grid-cols-3">
+    <%= form.label :name, class: 'col-span-1'%>
+    <%= form.text_field :name, class: 'col-span-2' %>
+  </div>
+  <div class="grid grid-rows-1 gap-2 grid-cols-3">
+    <%= form.label :measurement_unit, class: 'col-span-1'%>
+    <%= form.text_field :measurement_unit,  class: 'col-span-2'%>
+  </div>
+  <div class="grid grid-rows-1 gap-2 grid-cols-3">
+    <%= form.label :price, class: 'col-span-1'%>
+    <%= form.number_field :price,  class: 'col-span-2'%>
+  </div>
+  <div class="grid grid-rows-1 gap-2 grid-cols-3">
+    <%= form.label :quantity, class: 'col-span-1'%>
+    <%= form.number_field :quantity,  class: 'col-span-2'%>
+  </div>
+  <div class="grid mt-4 p-2 bg-red-200 content-center rounded-md hover:bg-red-500 hover:text-white">
+    <%= form.submit "Create a new food"%>
+  </div>
+<%end%>
