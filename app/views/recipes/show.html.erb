@@ -1,0 +1,15 @@
+<div class="wrapper">
+
+  <h1>Recipe <%= @recipe.name %></h1>
+  <% if @recipe.public %>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Public</label>
+    </div>
+  <% else %>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Private</label>
+    </div>
+  <% end %>
+</div>
