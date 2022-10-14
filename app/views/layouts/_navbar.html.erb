@@ -8,10 +8,11 @@
       <%= link_to "Public Recipes", recipes_index_path, :class => 'nav-link' %>
       <%= link_to "Users", users_path, :class => 'nav-link' %>
         <% if user_signed_in? %>
-          <%= link_to "Users", users_path, :class => 'nav-link' %>
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %>
           <%= link_to "My Recipe List", user_recipes_path(user_id: current_user.id), :class => 'nav-link' %>
-          <%= link_to "My Food List", user_foods_path(user_id: current_user.id), :class => 'nav-link' %>
+          <%# This is error %>
+          <%# <%= link_to "My Food List", user_foods_path(user_id: current_user.id), :class => 'nav-link' %>
+          <%# end %>
           <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'nav-link' %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link' %>
