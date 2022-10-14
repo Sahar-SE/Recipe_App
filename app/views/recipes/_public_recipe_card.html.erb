@@ -6,6 +6,9 @@
         </h5>
         <h5>By: <%= recipe.user_id %></h5>
         <p class="card-text"><%= recipe.description %></p>
+        <div class="d-flex justify-content-end">
+        <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
+      </div>
       </div>
     </div>
 </div>
