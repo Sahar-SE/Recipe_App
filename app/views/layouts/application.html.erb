@@ -6,15 +6,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+
   <body>
-    <%= render "layouts/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="flex justify-center">
-      <%= yield %>
-    </div>
+   <%= render "layouts/navbar" %>
+    <% if notice %>
+      <%= render 'layouts/notice' %>
+    <% end %>
+    <% if alert %>
+      <%= render 'layouts/alert' %>
+    <% end %>
+    <%= yield %>
   </body>
 </html>

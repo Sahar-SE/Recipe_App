@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h2>Add New Recipe</h2>
+  <%= form_with model: @recipe, url: user_recipes_url(:user_id, @recipe), method: :post do |f| %>
+    <div class="">
+      <%= f.label :name, class: "" %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "" %>
+    </div>
+    <div class="">
+      <%= f.label :preparation_time, class: "" %><br />
+      <%= f.text_field :preparation_time, autofocus: true, autocomplete: "preparation_time", class: "" %>
+    </div>
+    <div class="">
+      <%= f.label :cooking_time, class: "" %><br />
+      <%= f.text_field :cooking_time, autofocus: true, autocomplete: "cooking_time", class: "" %>
+    </div>
+    <div class="">
+      <%= f.label :description, class: "" %><br />
+      <%= f.text_area :description, autofocus: true, autocomplete: "description" , class: ""%>
+    </div>
+    <div class="">
+        <%= f.radio_button :public, true %>
+        <%= f.label 'Public', :public => 'True' %>
+        <%= f.radio_button :public, false %>
+        <%= f.label 'Private', :public => 'False' %>
+    </div>
+    <div class="">
+      <%= f.submit "Add recipe", class: "" %>
+    </div>
+  <% end %>
+</div>

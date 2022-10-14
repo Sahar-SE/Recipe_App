@@ -1,6 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :user
-  # has_many :receipFoods
+  has_many :recipes_foods, dependent: :destroy
 
   validates :name, presence: true, length: { in: 1..255 }
   validates :measurement_unit, presence: true, length: { in: 1..255 }
