@@ -1,15 +1,24 @@
+<%= stylesheet_link_tag "recipe.css" %>
 <div class="wrapper">
 
-  <h1>Recipe <%= @recipe.name %></h1>
-  <% if @recipe.public %>
-    <div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
-      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Public</label>
-    </div>
-  <% else %>
-    <div class="form-check form-switch">
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
-      <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Private</label>
-    </div>
-  <% end %>
+  <div class="">
+      <div>
+        <h4>Preparation Time: <%= @recipe.preparation_time %></h4>
+        <h4>Cooking Time: <%= @recipe.cooking_time %></h4>
+        <h4>Steps go here...</h4>
+      </div>
+      <div>
+        <% if @recipe.public %>
+        <div class="">
+          <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+          <label class="" for="flexSwitchCheckCheckedDisabled">Public</label>
+        </div>
+        <% else %>
+        <div class="">
+          <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+          <label class="" for="flexSwitchCheckCheckedDisabled">Private</label>
+        </div>
+        <% end %>
+      </div>
+</div>
 </div>

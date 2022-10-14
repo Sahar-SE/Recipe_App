@@ -7,20 +7,22 @@
         <h5>By: <%= recipe.user_id %></h5>
         <% if recipe.public %>
           <div class="form-check form-switch">
-            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
             <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Public</label>
           </div>
         <% else %>
           <div class="form-check form-switch">
-            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
-            <label class="" for="flexSwitchCheckCheckedDisabled">Private</label>
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Private</label>
           </div>
         <% end %>
         <p class="card-text"><%= recipe.description %></p>
-
-        <% if can? :manage, recipe %>
+        <div class="d-flex justify-content-end">
+            <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
+            
           <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "" %>
-        <% end %>
+        
+          </div>
       </div>
     </div>
 </div>
