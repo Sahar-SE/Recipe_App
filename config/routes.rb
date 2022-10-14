@@ -7,9 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   root "recipes#public"
-  resources :users do
-    resources :recipes
-  end
+  resources :users 
   resources :foods
   resources :recipes
 end
