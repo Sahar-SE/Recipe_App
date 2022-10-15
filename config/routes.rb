@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'shopping_list/index'
-  get 'shopping_list/show'
+  resources :shopping_list
   devise_for :users
   get 'recipes/index', to: 'recipes#public'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,7 +9,9 @@ Rails.application.routes.draw do
 
   root "recipes#public"
   resources :users do
-    resources :recipes
+    resources :recipes do
+      resources :shopping_list, only: [:index ,:show]
+    end
   end
   resources :foods
   resources :recipes
