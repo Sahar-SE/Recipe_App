@@ -1,0 +1,14 @@
+<div class="wrapper">
+<h1 class="text-center text-2xl font-bold text-red-400 mt-10">Users List</h1>
+
+<% @users.each do |user| %>
+      <ul class="bg-gray-800 text-white p-5 w-80 mt-3 rounded-md">
+        <%= render partial: 'users/users_list', locals: { user: user } %>
+    </ul>
+
+  <% end %>
+  <% if @users.empty? %>
+    <h1>There are no users to show</h1>
+  <% end %>
+</div>
+

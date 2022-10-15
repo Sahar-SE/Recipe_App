@@ -1,0 +1,24 @@
+<table class="">
+  <% if @recipe.recipe_foods.any? %>
+     <thead>
+         <tr>
+         <th>Food</th>
+         <th>Quantity</th>
+         <th>Price</th>
+         </tr>
+     </thead>
+
+     <tbody>
+     <% @recipe.recipe_foods.each do |fd|%>
+     <tr>
+       <td><%= fd.food.name%></th>
+       <td><%= fd.quantity%><%= fd.food.measurementUnit  %></td>
+       <td>$<%= fd.quantity* fd.food.price %></td>
+       <td class="">
+       </td>
+     </tr>
+
+     </tbody>
+     <%end%>
+   <%end%>
+ </table>

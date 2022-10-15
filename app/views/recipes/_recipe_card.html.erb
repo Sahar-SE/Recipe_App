@@ -1,0 +1,57 @@
+<div class="wrapper">
+      <table class="table-fixed w-4/5 mt-10"> 
+      <thead class="bg-gray-800 text-white border">
+      <th class="p-4 border border-slate-600">food</th>
+      <th class="p-4 border border-slate-600">By</th>
+      <th class="p-4 border border-slate-600">Type</th>
+      <th class="p-4 border border-slate-600">Total foods</th>
+      <th class="p-4 border border-slate-600">Total price</th>
+      <th class="p-4 border border-slate-600">Description</th>
+      <th class="p-4 border border-slate-600">Time</th>
+      <th class="p-4 border border-slate-600">Remove</th>
+      </thead>
+      <tbody class="border bg-red-300">
+      <tr>
+      <td class="p-4">
+      <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+      </td>
+      <td class="p-4">
+      <%= recipe.user.name %>
+      </td>
+      <td class="p-4">
+       <% if recipe.public %>
+          <div class="">
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <label class="" for="flexSwitchCheckCheckedDisabled">Public</label>
+          </div>
+        <% else %>
+          <div class="form-check form-switch">
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+            <label class="" for="flexSwitchCheckCheckedDisabled">Private</label>
+          </div>
+        <% end %>
+      </td>
+      <td class="p-4">
+       <%= recipe.recipes_foods.length %>
+       </td>
+      <td>
+       <% sum = 0 %>
+          $ <% recipe.recipes_foods.each do |food| %>
+          <% sum += food.food.price %>
+          <% end %>
+          <%= sum %>
+      </td>
+      <td class="p-4">
+      <%= recipe.description %>
+      </td>
+      <td class="p-4">
+      <%= time_ago_in_words(recipe[:created_at]) %>
+      </td>
+      <td class="p-4">
+      <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "" %>
+      </td>
+      </tr>
+      </tbody>
+      </table>   
+          </div>
+</div>

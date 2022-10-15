@@ -1,0 +1,28 @@
+<div class="flex justify-center">
+  <table class="min-w-full bg-white">
+    <thead class="bg-gray-800 text-white">
+      <tr>
+        <th class="border border-slate-600">Food</th>
+        <th class="border border-slate-600">Measurement Unit</th>
+        <th class="border border-slate-600">Unit Price</th>
+        <th class="border border-slate-600">Action</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-700">
+      <% @foods.each do |food|%>
+        <tr class="odd:bg-red-300">
+          <td class="border border-slate-600 text-center"><%= food.name%></td>
+          <td class="border border-slate-600 text-center"><%= food.measurement_unit%></td>
+          <td class="border border-slate-600 text-center"><%= food.price%></td>
+          <td class="border border-slate-600 text-center">
+            <%= link_to "Delete", food_path(food), :class => "hover:text-red-600",
+            data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Do you want to delete #{food.name}?"
+                  }%>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

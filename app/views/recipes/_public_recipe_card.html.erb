@@ -1,0 +1,28 @@
+<div class="wrapper ">
+  <table class="table-fixed w-3/5 mt-10"> 
+      <thead class="bg-gray-800 text-white border">
+      <tr>
+      <th class="p-4 border border-slate-600">food</th>
+      <th class="p-4 border border-slate-600">By</th>
+      <th class="p-4 border border-slate-600">Description</th>
+      <th class="p-4 border border-slate-600">Time</th>
+      <tr>
+      </thead>
+      <tbody class="border bg-red-300">
+      <tr>
+      <td class="p-4">
+      <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+      </td>
+      <td class="p-4">
+      <%= recipe.user.name %>
+      </td>
+      <td class="p-4">
+      <%= recipe.description %>
+      </td>
+      <td class="p-4">
+      <%= time_ago_in_words(recipe[:created_at]) %>
+      </td>
+      </tr>
+      </tbody>
+      </table>
+</div>
