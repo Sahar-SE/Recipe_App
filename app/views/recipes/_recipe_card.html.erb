@@ -1,27 +1,50 @@
 <div class="wrapper">
-    <div class="card set-width my-3">
-      <div class="card-body">
-        <h5>
-          <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
-        </h5>
-        <h5>By: <%= recipe.user_id %></h5>
-        <% if recipe.public %>
-          <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
-            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Public</label>
+    <div class="">
+      <div class="">
+      <table class="table-fixed w-3/5 ml-60"> 
+      <tbody class="border bg-red-400">
+      <tr>
+      <td class="p-5">
+      <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
+      </td>
+      <td class="p-5">
+      <%= recipe.user_id %>
+      </td>
+      <td class="p-5">
+       <% if recipe.public %>
+          <div class="">
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+            <label class="" for="flexSwitchCheckCheckedDisabled">Public</label>
           </div>
         <% else %>
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
-            <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Private</label>
+            <input class="" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" disabled>
+            <label class="" for="flexSwitchCheckCheckedDisabled">Private</label>
           </div>
         <% end %>
-        <p class="card-text"><%= recipe.description %></p>
-        <div class="d-flex justify-content-end">
-            <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
-            
-          <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "" %>
-        
+      </td>
+      <td class="p-5">
+       <%= recipe.recipes_foods.length %>
+       </td>
+      <td>
+       <% sum = 0 %>
+          $ <% recipe.recipes_foods.each do |food| %>
+          <% sum += food.food.price %>
+          <% end %>
+          <%= sum %>
+      </td>
+      <td class="p-5">
+      <%= recipe.description %>
+      </td>
+      <td class="p-5">
+      <%= time_ago_in_words(recipe[:created_at]) %>
+      </td>
+      <td class="p-5">
+      <%= button_to "Delete", user_recipe_path(recipe.user, recipe.id), method: :delete, class: "" %>
+      </td>
+      </tr>
+      </tbody>
+      </table>   
           </div>
       </div>
     </div>

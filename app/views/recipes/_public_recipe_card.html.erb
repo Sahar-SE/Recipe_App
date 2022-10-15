@@ -1,14 +1,15 @@
-<div class="wrapper">
-    <div class="card set-width my-3">
-      <div class="card-body">
+<div class="wrapper flex ">
+    <div class="bg-gray-800 text-white flex-row">
         <h5>
           <%= link_to recipe.name, user_recipe_path(id: recipe.id, user_id: recipe.user.id), class: "card-title" %>
         </h5>
-        <h5>By: <%= recipe.user_id %></h5>
+        <h5>By: <%= recipe.user.name %></h5>
+        </div>
+        <div class="bg-red-400">
         <p class="card-text"><%= recipe.description %></p>
-        <div class="d-flex justify-content-end">
+        
+        <div class="">
         <p class="opacity-50"><%= time_ago_in_words(recipe[:created_at]) %></p>
-      </div>
       </div>
     </div>
 </div>
