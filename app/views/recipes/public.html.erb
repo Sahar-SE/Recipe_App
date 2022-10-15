@@ -1,4 +1,4 @@
-<h1>Public Recipe List</h1>
+<h1 class="text-center text-2xl font-bold text-red-400 mt-10">Public Recipe List</h1>
 
 <% @public_recipes.each do |recipe| %>
    <%= render partial: 'recipes/public_recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>

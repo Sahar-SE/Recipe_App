@@ -20,6 +20,6 @@
     </div>
   </div>
   <% if user_signed_in? %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'float-right grid mt-2 p-2 bg-red-400 content-center rounded-md hover:bg-red-500 hover:text-white' %>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, data: { turbo: false }, :class => 'float-right grid mt-2 p-2 bg-red-300 content-center rounded-md hover:bg-red-500 hover:text-white' %>
   <% end %>
 </nav>
