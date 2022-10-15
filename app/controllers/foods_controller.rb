@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.where(user_id: current_user)
+    @foods = Food.where(user_id: current_user).order(:name)
   end
 
   def new

@@ -1,14 +1,15 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.includes([:user]).all.order(created_at: :desc)
+    @recipes = Recipe.includes([:user], [:recipes_foods]).all.order(created_at: :desc)
   end
 
   def public
-    @public_recipes = Recipe.includes([:user]).where(public: true).order(created_at: :desc)
+    @public_recipes = Recipe.includes([:user], [:recipes_foods]).where(public: true).order(created_at: :desc)
   end
 
   def show
     @recipe = Recipe.includes([:user]).find(params[:id])
+    @recipe_food = @recipe.recipes_foods.all.includes([:food]).sort_by { |recipe_food| recipe_food.food.name }
   end
 
   def new
@@ -34,7 +35,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.delete
+    @recipe.destroy
     respond_to do |format|
       format.html do
         redirect_to user_recipes_path(user_id: @recipe.user.id), notice: 'Recipe was successfully deleted.'

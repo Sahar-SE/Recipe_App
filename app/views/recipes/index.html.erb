@@ -1,5 +1,9 @@
-<h1>Recipe List</h1>
-<%= link_to "Add New Recipe", new_user_recipe_path(:user_id), class: "" %>
+<h1 class="text-center text-2xl font-bold text-red-400 mt-10">Recipe List</h1>
+<%= link_to "Add New Recipe", new_user_recipe_path(:user_id), class: "m-1 p-1 bg-red-300 text-white rounded-md hover:bg-red-500 hover:text-white" %>
+
+<table class="wrapper w-4/5">
+ 
+</table>
 <% @recipes.each do |recipe| %>
   <%= render partial: 'recipes/recipe_card', locals: { recipe: recipe, user_id: recipe.id } %>
   <% end %>

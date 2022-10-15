@@ -1,5 +1,5 @@
 <div class="wrapper">
-<h2>Sign up</h2>
+<h2 class="text-red-400 font-bold text-3xl mt-10">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -28,7 +28,7 @@
   </div>
 
   <div>
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: 'm-1 p-1 bg-red-400 text-white rounded-md hover:bg-red-500 hover:text-white'%>
   </div>
 <% end %>
 <%= render "devise/shared/links" %>
