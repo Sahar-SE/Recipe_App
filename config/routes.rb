@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   root "recipes#public"
   resources :users do
-    resources :recipes
+    resources :recipes do
+      resources :shopping_list, only: [:index ,:show]
+    end
   end
   resources :foods
   resources :recipes
